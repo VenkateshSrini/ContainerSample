@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  containerdasample:
+    image: containerdasample
+    restart: always
+    ports:
+      - 5000:5000
+    build:
+      context: ./Src/ContainerDASample
+      dockerfile: Dockerfile
+    networks:
+      - mynetwork
+networks:
+  mynetwork:
+     driver: host
+      

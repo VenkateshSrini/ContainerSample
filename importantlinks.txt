@@ -1,0 +1,11 @@
+https://damienbod.com/2017/01/27/docker-compose-with-asp-net-core-ef-core-and-the-postgresql-image/
+https://stackoverflow.com/questions/45316662/connect-containerized-net-core-mvc-webapi-app-to-locally-installed-postgres
+https://stackoverflow.com/questions/24319662/from-inside-of-a-docker-container-how-do-i-connect-to-the-localhost-of-the-mach
+
+https://docs.docker.com/machine/drivers/hyper-v/#usage
+
+very important
+https://stackoverflow.com/questions/40746453/how-to-connect-to-docker-host-from-container-on-windows-10-docker-for-windows
+https://stackoverflow.com/questions/20845056/how-can-i-expose-more-than-1-port-with-docker
+
+https://github.com/twright-msft/mssql-node-docker-demo-app
