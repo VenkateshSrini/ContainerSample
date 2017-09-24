@@ -11,6 +11,8 @@ using Microsoft.Extensions.Options;
 using ContainerDASample.Database;
 using ContainerDASample.Database.Configuration;
 using Microsoft.Extensions.Logging.Console;
+using Microsoft.AspNetCore.DataProtection;
+using StackExchange.Redis;
 
 namespace ContainerDASample
 {
@@ -26,7 +28,9 @@ namespace ContainerDASample
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
+            var redis=  ConnectionMultiplexer.Connect($"{Configuration["RedisOptions:host"]}:{Configuration["RedisOptions:port"]}");
+            services.AddDataProtection()
+                .PersistKeysToRedis(redis, "DataProtection-Keys");
             services.AddOptions();
             services.Configure<DatabaseOptions>(Configuration.GetSection("DatabaseOptions"));
             services.AddMvc();

@@ -16,6 +16,17 @@ services:
       - pgdata:/var/lib/postgresql/data
     networks:
     - containernetwork
+
+  dockerredis:
+    image: redisserver
+    build:
+      context: .
+      dockerfile: RedisDockerfile
+    ports:
+      - 6739:6739
+    networks:
+      - containernetwork
+
   containerda:
     image: containerda-img
     restart: always
@@ -26,8 +37,10 @@ services:
       - 5000:80
     links:
       - dockerpostgres
+      - dockerredis
     depends_on:
       - "dockerpostgres"
+      - "dockerredis"
     networks:
       - containernetwork
 volumes:
