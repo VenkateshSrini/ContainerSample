@@ -28,9 +28,9 @@ namespace ContainerDASample
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var redis=  ConnectionMultiplexer.Connect($"{Configuration["RedisOptions:host"]}:{Configuration["RedisOptions:port"]}");
-            services.AddDataProtection()
-                .PersistKeysToRedis(redis, "DataProtection-Keys");
+            //var redis=  ConnectionMultiplexer.Connect($"{Configuration["RedisOptions:host"]}:{Configuration["RedisOptions:port"]}");
+            //services.AddDataProtection()
+            //    .PersistKeysToRedis(redis, "DataProtection-Keys");
             services.AddOptions();
             services.Configure<DatabaseOptions>(Configuration.GetSection("DatabaseOptions"));
             services.AddMvc();

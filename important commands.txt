@@ -1,1 +1,7 @@
 docker exec d10023a5d467 cat /etc/hosts
+
+#!/bin/bash
+# Delete all containers
+docker rm $(docker ps -a -q)
+# Delete all images
+docker rmi $(docker images -q)

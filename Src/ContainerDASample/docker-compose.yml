@@ -2,7 +2,7 @@ version: '3'
 
 services:
   dockerpostgres:
-    image: postgres-server
+    image: venkateshsrini3/postgres-server:sample
     restart: always
     build:
       context: ./dbscripts
@@ -17,18 +17,18 @@ services:
     networks:
     - containernetwork
 
-  dockerredis:
-    image: redisserver
-    build:
-      context: .
-      dockerfile: RedisDockerfile
-    ports:
-      - 6739:6739
-    networks:
-      - containernetwork
+#  dockerredis:
+#    image: venkatesrini3/redisserver:sample
+#    build:
+#      context: .
+#      dockerfile: RedisDockerfile
+#    ports:
+#      - 6739:6739
+#    networks:
+#      - containernetwork
 
   containerda:
-    image: containerda-img
+    image: venkateshsrini3/containerda-img:sample
     restart: always
     build:
       context: .
@@ -37,10 +37,10 @@ services:
       - 5000:80
     links:
       - dockerpostgres
-      - dockerredis
+#      - dockerredis
     depends_on:
       - "dockerpostgres"
-      - "dockerredis"
+#      - "dockerredis"
     networks:
       - containernetwork
 volumes:
